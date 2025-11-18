@@ -14,8 +14,9 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.0",
     "axios": "^1.7.0",
-    "redux": "^5.0.1",
+    "firebase": "^12.6.0",
     "react-redux": "^9.2.0",
+    "redux": "^5.0.1",
     "uuid": "^9.0.1"
   },
   "devDependencies": {

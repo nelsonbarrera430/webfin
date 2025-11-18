@@ -1,88 +1,70 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crypto Dashboard</title>
-    <link rel="stylesheet" href="styles/main.css">
+  <meta charset="UTF-8" />
+  <title>Crypto Dashboard (CoinGecko + Firebase)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./styles/main.css" />
 </head>
 <body>
-    
-    <div id="notification-container"></div>
+  <header>
+    <h1>Crypto Dashboard (CoinGecko + Firebase)</h1>
+    <nav>
+      <button id="loginBtn">Login</button>
+      <button id="logoutBtn" hidden>Logout</button>
+    </nav>
+  </header>
 
-    <section id="auth-view">
-        <h2>Crypto Dashboard Login</h2>
-        <form id="login-form">
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" value="eve.holt@reqres.in" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" value="cityslicka" required>
-            </div>
-            <button type="submit" id="login-button">Login</button>
-            <p id="auth-status" class="status-message"></p>
-        </form>
+  <main>
+    <aside id="watchlistAside">
+      <h2>Watchlist</h2>
+      <ul id="watchlistList"></ul>
+      <div id="notes"></div>
+    </aside>
+
+    <section id="dashboard">
+      <div id="searchBar">
+        <input id="searchInput" type="text" placeholder="Buscar activo..." />
+        <ul id="searchResults"></ul>
+      </div>
+
+      <div id="marketPanel">
+        <h2>Mercado</h2>
+        <table id="marketTable">
+          <thead>
+            <tr>
+              <th>Activo</th>
+              <th>Precio (USD)</th>
+              <th>Cambio 24h</th>
+            </tr>
+          </thead>
+          <tbody id="marketBody"></tbody>
+        </table>
+      </div>
+
+      <div id="historicalPanel">
+        <h2>Resumen histórico</h2>
+        <div id="historicalSummary"></div>
+      </div>
+
+      <div id="analysisPanel">
+        <h2>Análisis de portafolio</h2>
+        <div id="analysisReport"></div>
+        <button id="runBestPerformer">Mejor rendimiento 24h</button>
+      </div>
+
+      <div id="notificationsPanel"></div>
     </section>
+  </main>
 
-    <div id="dashboard-view" class="hidden">
-        
-        <header>
-            <h1>Crypto Dashboard</h1>
-            <div id="user-profile">
-                </div>
-            <button id="logout-button">Logout</button>
-        </header>
+  <template id="marketRowTemplate">
+    <tr>
+      <td class="assetId"></td>
+      <td class="price"></td>
+      <td class="change24h"></td>
+    </tr>
+  </template>
 
-        <main class="dashboard-grid">
-            
-            <aside id="watchlist-panel">
-                <h2>BUSQUEDA</h2>
-                <ul id="watchlist-list">
-                    </ul>
-                <div class="search-box">
-                    <input type="text" id="search-input" placeholder="Buscar activo...">
-                    <ul id="search-results">
-                        </ul>
-                </div>
-            </aside>
-
-            <section id="main-panel">
-                <h2 id="selected-asset-name">LISTA DE MONEDAS</h2>
-                
-                <div id="price-feed">
-                    </div>
-                
-                <div id="historical-summary">
-                    <h3>Resumen Histórico (1 Año)</h3>
-                    <button id="load-history-btn">Cargar Resumen</button>
-                    <div id="history-data"></div>
-                </div>
-
-                <div id="portfolio-analysis">
-                    <h3>Análisis de Watchlist</h3>
-                    <button id="run-analysis-btn">Analizar "Mejor Rendimiento"</button>
-                    <div id="analysis-report"></div>
-                </div>
-            </section>
-
-        </main>
-    </div>
-
-    <template id="user-profile-template">
-        <img src="" alt="Avatar" class="avatar">
-        <span></span>
-    </template>
-    
-    <template id="price-feed-template">
-        <div class="price-item">
-            <strong></strong>
-            <span class="price"></span>
-            <span class="change"></span>
-        </div>
-    </template>
-
-    <script src="main.js" type="module"></script>
+  <script type="module" src="./main.js"></script>
 </body>
 </html>
