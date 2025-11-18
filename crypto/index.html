@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Dashboard</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    
+    <div id="notification-container"></div>
+
+    <section id="auth-view">
+        <h2>Crypto Dashboard Login</h2>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" value="eve.holt@reqres.in" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" value="cityslicka" required>
+            </div>
+            <button type="submit" id="login-button">Login</button>
+            <p id="auth-status" class="status-message"></p>
+        </form>
+    </section>
+
+    <div id="dashboard-view" class="hidden">
+        
+        <header>
+            <h1>Crypto Dashboard</h1>
+            <div id="user-profile">
+                </div>
+            <button id="logout-button">Logout</button>
+        </header>
+
+        <main class="dashboard-grid">
+            
+            <aside id="watchlist-panel">
+                <h2>Watchlist</h2>
+                <ul id="watchlist-list">
+                    </ul>
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Buscar activo...">
+                    <ul id="search-results">
+                        </ul>
+                </div>
+            </aside>
+
+            <section id="main-panel">
+                <h2 id="selected-asset-name">Bitcoin (BTC)</h2>
+                
+                <div id="price-feed">
+                    </div>
+                
+                <div id="historical-summary">
+                    <h3>Resumen Histórico (1 Año)</h3>
+                    <button id="load-history-btn">Cargar Resumen</button>
+                    <div id="history-data"></div>
+                </div>
+
+                <div id="portfolio-analysis">
+                    <h3>Análisis de Watchlist</h3>
+                    <button id="run-analysis-btn">Analizar "Mejor Rendimiento"</button>
+                    <div id="analysis-report"></div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <template id="user-profile-template">
+        <img src="" alt="Avatar" class="avatar">
+        <span></span>
+    </template>
+    
+    <template id="price-feed-template">
+        <div class="price-item">
+            <strong></strong>
+            <span class="price"></span>
+            <span class="change"></span>
+        </div>
+    </template>
+
+    <script src="main.js" type="module"></script>
+</body>
+</html>
